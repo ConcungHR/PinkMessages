@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thông điệp của bạn</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="card" id="card">
+            <p id="card-recipient"></p>
+            <p id="card-message"></p>
+        </div>
+        <button id="download-btn">Tải ảnh về</button>
+    </div>
+
+    <script>
+        // Lấy thông điệp và các thông tin khác từ URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const message = urlParams.get('message');
+        const recipient = urlParams.get('recipient');
+        const employeeId = urlParams.get('employeeId');
+        const department = urlParams.get('department');
+
+        // Hiển thị thông tin trên thẻ
+        document.getElementById('card-recipient').innerText = `Gửi ${recipient} thuộc team ${department}`;
+        document.getElementById('card-message').innerText = message;
+
+        // Tải ảnh với Canvas
+        document.getElementById('download-btn').onclick = function () {
+            html2canvas(document.getElementById('card')).then(function(canvas) {
+                let link = document.createElement('a');
+                link.download = 'card.png';
+                link.href = canvas.toDataURL();
+                link.click();
+            });
+        };
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</body>
+</html>
