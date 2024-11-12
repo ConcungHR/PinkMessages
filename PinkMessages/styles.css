@@ -1,6 +1,6 @@
 .card {
-    width: 1772px;
-    height: 1181px;
+    width: 450px;
+    height: 300px;
     background-image: url('demo.jpg'); /* Đường dẫn hình nền */
     background-size: cover;
     background-position: center;
@@ -19,14 +19,14 @@
 }
 
 #card-recipient {
-    font-size: 40px;
+    font-size: 20px;
     font-weight: bold;
     margin-bottom: 10px;
 }
 
 #card-message {
-    font-size: 80px;
-    margin-bottom: 10px;
-    margin-left: 200px;
-    margin-right: 200px;
+    font-size: 30px;
+    margin-bottom: 5px;
+    margin-left: 50px;
+    margin-right: 50px;
 }
